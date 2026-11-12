@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="640" viewBox="0 0 1000 640" role="img" aria-labelledby="title description">
+<title id="title">Mimi browser architecture</title>
+<desc id="description">Firebase Hosting serves the React application. The browser uses Supabase Auth for Google Workspace sign-in and reads protected PostgreSQL records. Shared Zod schemas validate records in the browser.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#53676a"/></marker></defs>
+<rect width="1000" height="640" fill="#f5f4ef"/>
+<g font-family="Helvetica, Arial, sans-serif" fill="#172f34">
+<text x="54" y="49" font-size="23">Mimi application architecture</text>
+<rect x="54" y="82" width="350" height="108" rx="5" fill="#fffefa" stroke="#ced5cf"/>
+<text x="78" y="123" font-size="25">Firebase Hosting</text><text x="78" y="157" font-size="19" fill="#53676a">Serves the web application</text>
+<path d="M229 190V270" fill="none" stroke="#53676a" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="245" y="237" font-size="18" fill="#53676a">Static assets</text>
+<rect x="54" y="272" width="350" height="296" rx="5" fill="#092e53"/>
+<text x="78" y="317" font-size="25" fill="#fff">Team browser</text>
+<text x="78" y="355" font-size="20" fill="#fff">React · TypeScript · Vite</text>
+<text x="78" y="388" font-size="20" fill="#fff">React Router · Flowbite</text>
+<path d="M78 413H380" stroke="#ffffff50"/>
+<text x="78" y="450" font-size="19" fill="#fff">Zod validates loaded records</text>
+<text x="78" y="487" font-size="19" fill="#fff">Lists · dossiers · timelines</text>
+<text x="78" y="532" font-size="18" fill="#fff">Shared organizational context</text>
+<rect x="604" y="272" width="342" height="115" rx="5" fill="#fffefa" stroke="#ced5cf"/>
+<text x="628" y="314" font-size="25">Supabase Auth</text><text x="628" y="350" font-size="19" fill="#53676a">Google Workspace sign-in</text>
+<path d="M404 329H603" fill="none" stroke="#53676a" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="452" y="311" font-size="18" fill="#53676a">Identity</text>
+<rect x="604" y="438" width="342" height="130" rx="5" fill="#fffefa" stroke="#ced5cf"/>
+<text x="628" y="476" font-size="25">Supabase PostgreSQL</text>
+<text x="628" y="510" font-size="16" fill="#53676a">People · organizations · opportunities</text>
+<text x="628" y="542" font-size="16" fill="#53676a">JSONB documents · row-level security</text>
+<path d="M404 502H603" fill="none" stroke="#53676a" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="427" y="483" font-size="18" fill="#53676a">Protected reads</text>
+</g></svg>
