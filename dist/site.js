@@ -19,11 +19,13 @@ const heroImage = document.querySelector('img.hero-image');
 const heroCaption = document.querySelector('#hero-caption-text');
 const heroCaptionContext = document.querySelector('#hero-caption-context');
 const heroVideos = [...document.querySelectorAll('.hero-video')];
+const sceneButtons = [...document.querySelectorAll('.scene-button')];
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const videoLoads = new Map();
 let playerLibrary;
 let mediaStarted = false;
 let activeHeroVideo;
+let autoAdvanceHero = true;
 
 function loadVideo(video) {
   if (videoLoads.has(video)) return videoLoads.get(video);
@@ -46,7 +48,7 @@ function loadVideo(video) {
   (async () => {
     const Hls = await (playerLibrary ||= import('/assets/hls.light.min.js').then(() => window.Hls));
     if (Hls.isSupported()) {
-      // These clips are at most 30 seconds: buffer each one before starting the next.
+      // Buffer each short clip before starting the next.
       const player = new Hls({
         maxBufferLength: 60,
         // Let the first variant set startup bandwidth, including the hero originals.
@@ -77,9 +79,10 @@ function loadVideo(video) {
   return loading;
 }
 
-document.querySelectorAll('.scene-button').forEach((button) => {
-  button.addEventListener('click', () => {
-    document.querySelectorAll('.scene-button').forEach((scene) => {
+sceneButtons.forEach((button) => {
+  button.addEventListener('click', (event) => {
+    if (event.isTrusted) autoAdvanceHero = false;
+    sceneButtons.forEach((scene) => {
       scene.setAttribute('aria-pressed', String(scene === button));
     });
     heroImage.src = button.dataset.image;
@@ -89,8 +92,10 @@ document.querySelectorAll('.scene-button').forEach((button) => {
     const videoSrc = button.dataset.video;
     const isVideo = Boolean(videoSrc);
     heroImage.closest('.hero').classList.toggle('is-video-scene', isVideo);
+    document.body.classList.toggle('is-navy-scene', button.dataset.theme === 'navy');
     heroVideos.forEach(video => {
       video.pause();
+      video.loop = !autoAdvanceHero;
       video.hidden = true;
     });
     activeHeroVideo = heroVideos.find(video => video.dataset.src === videoSrc);
@@ -108,6 +113,14 @@ document.querySelectorAll('.scene-button').forEach((button) => {
         });
       });
     }
+  });
+});
+
+heroVideos.forEach(video => {
+  video.addEventListener('ended', () => {
+    if (!autoAdvanceHero || video !== activeHeroVideo) return;
+    const current = sceneButtons.findIndex(button => button.dataset.video === video.dataset.src);
+    sceneButtons[(current + 1) % sceneButtons.length].click();
   });
 });
 
