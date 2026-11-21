@@ -131,6 +131,8 @@ figcaption { font-size: 11px; color: var(--muted); line-height: 1.5; margin-top:
 .detail-hero { margin-bottom: 62px; }
 .detail-hero iframe { display: block; width: 100%; height: clamp(480px, 60vw, 650px); border: 0; background: var(--sea); }
 .detail-hero img { max-height: 680px; object-fit: cover; }
+.about .detail-hero { max-width: 800px; margin-inline: auto; }
+.about .detail-hero img { min-height: 0; }
 .detail-hero.contain img { max-height: 650px; object-fit: contain; background: #e8eae3; padding: 35px; }
 .detail-hero.dark img { background: var(--sea); object-fit: contain; }
 .article-layout { display: grid; grid-template-columns: 1fr 2.1fr; gap: 65px; padding-bottom: 90px; }
