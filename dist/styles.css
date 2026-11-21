@@ -135,6 +135,7 @@ figcaption { font-size: 11px; color: var(--muted); line-height: 1.5; margin-top:
 .detail-hero.dark img { background: var(--sea); object-fit: contain; }
 .article-layout { display: grid; grid-template-columns: 1fr 2.1fr; gap: 65px; padding-bottom: 90px; }
 .article-layout.article-single { display: block; max-width: 800px; margin-inline: auto; }
+.contact .article-single { margin-inline: 0; }
 .article-aside { color: var(--muted); font-size: 13px; }
 .article-aside .eyebrow { margin-bottom: 20px; }
 .article-aside a { display: block; padding: 5px 0; }
