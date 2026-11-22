@@ -32,8 +32,6 @@ figure, p, h1, h2, h3 { margin: 0; }
 .main-nav a { transition: opacity .2s; }
 .main-nav a:hover { opacity: .65; }
 .main-nav a[aria-current='page'] { text-decoration: underline; text-underline-offset: 6px; }
-.main-nav .nav-contact { border: 1px solid #95a7a5; border-radius: 30px; padding: 9px 20px; }
-.home .nav-contact { border-color: #ffffff80; }
 .menu-button { display: none; border: 0; background: transparent; cursor: pointer; }
 .eyebrow { font-size: 11px; letter-spacing: .18em; line-height: 1.5; text-transform: uppercase; font-weight: 500; }
 .hero { min-height: 100svh; display: flex; flex-direction: column; position: relative; isolation: isolate; color: white; background: var(--sea); overflow: hidden; }
@@ -194,7 +192,6 @@ figcaption { font-size: 11px; color: var(--muted); line-height: 1.5; margin-top:
   .main-nav { display: none; }
   .main-nav.is-open { display: flex; position: absolute; top: 78px; left: 0; right: 0; flex-direction: column; align-items: stretch; background: var(--paper); color: var(--ink); padding: 20px; gap: 0; box-shadow: 0 15px 20px #172f3412; }
   .main-nav.is-open a { padding: 13px 0; border-bottom: 1px solid var(--line); }
-  .main-nav.is-open .nav-contact { border: none; border-radius: 0; }
   .hero-image { object-position: left center; }
   .hero-content { padding-top: 132px; }
   .hero h1 { font-size: clamp(40px, 12.9vw, 78px); margin-top: 24px; margin-bottom: 30px; }
