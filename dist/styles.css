@@ -129,6 +129,7 @@ figcaption { font-size: 11px; color: var(--muted); line-height: 1.5; margin-top:
 .breadcrumb:hover { text-decoration: underline; }
 .page-heading .eyebrow { color: var(--muted); margin-bottom: 20px; }
 .page-heading h1 { font-family: var(--serif); font-size: clamp(48px, 5.8vw, 84px); font-weight: 400; letter-spacing: -.05em; line-height: 1.05; }
+.contact .page-heading h1 { font-size: 33px; }
 .page-heading .lead { color: var(--muted); font-size: clamp(18px, 2vw, 24px); line-height: 1.45; max-width: 780px; margin-top: 25px; }
 .detail-hero { margin-bottom: 62px; }
 .detail-hero iframe { display: block; width: 100%; height: clamp(480px, 60vw, 650px); border: 0; background: var(--sea); }
@@ -226,6 +227,7 @@ figcaption { font-size: 11px; color: var(--muted); line-height: 1.5; margin-top:
   .footer-top .text-link { font-size: 13px; gap: 20px; }
   .page-heading { padding-block: 40px; }
   .page-heading h1 { font-size: 52px; }
+  .contact .page-heading h1 { font-size: 31px; }
   .page-heading .lead { font-size: 20px; }
   .detail-hero { margin-bottom: 40px; }
   .detail-hero img { min-height: 250px; max-height: 480px; }
