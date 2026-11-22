@@ -1,0 +1,114 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageHeading from '../../components/PageHeading.astro';
+---
+
+<SiteLayout
+  title={"Deeptime — Dan Vallentyne"}
+  description={"Python automation for large Metashape photogrammetry workflows, with reusable operations, batch configuration, saved-stage checkpoints, logs, and exports."}
+>
+  <div class="wrap">
+    <PageHeading title={"Deeptime"} eyebrow={"Projects"} lead={"Automating large photogrammetry workflows"}>
+      <a slot="breadcrumb" class="breadcrumb" href="/projects/">← All projects</a>
+      <div class="hero-actions">
+        <a class="button" href="#batch-processing">See the batch workflow</a>
+      </div>
+    </PageHeading>
+    <figure class="detail-hero dark">
+      <img src="/assets/images/deeptime-terminal-1432.webp" alt="The Deeptime automation pipeline running a multi-project Metashape batch from the terminal" width="1432" height="732" fetchpriority="high" srcset="/assets/images/deeptime-terminal-480.webp 480w, /assets/images/deeptime-terminal-1432.webp 1432w" sizes="(max-width:700px) calc(100vw - 40px), (max-width:1000px) calc(100vw - 64px), (max-width:1432px) calc(100vw - 112px), 1320px">
+      <figcaption>One command runs survey projects through photo import, alignment, depth maps, models, orthomosaics, and TIFF export. Two projects are complete; the next is processing.</figcaption>
+    </figure>
+    <div class="article-layout">
+      <aside class="article-aside">
+        <div class="article-resources">
+          <p class="eyebrow">Project links</p>
+          <a href="https://github.com/kidconcept/deeptime">Browser prototype source</a>
+          <a href="/expeditions/bonaire-baseline.html">Bonaire Baseline Surveys</a>
+        </div>
+        <nav aria-label="On this page">
+          <p class="eyebrow">On this page</p>
+          <a href="#dataset-scale">Dataset scale</a>
+          <a href="#processing-workflow">Processing workflow</a>
+          <a href="#batch-processing">Batch configuration</a>
+          <a href="#progress-checkpoints">Progress and checkpoints</a>
+          <a href="#architecture">Code architecture</a>
+          <a href="#reef-outputs">Export outputs</a>
+          <a href="#browser-viewer">Related browser prototype</a>
+        </nav>
+      </aside>
+      <article class="prose">
+        <p>I built Deeptime, a Python pipeline for Agisoft Metashape, to automate repeated photogrammetry operations across a queue of survey projects.</p>
+        <p>Survey teams must coordinate photographs, processing settings, saved projects, and exports for every site. Repeating that setup by hand becomes difficult as the collection grows. The operation order and export locations must stay consistent as processing moves between sites.</p>
+        <p><strong>My contribution:</strong> Python pipeline architecture, Metashape automation, batch orchestration, progress reporting, and export workflows.</p>
+        <h2 id="dataset-scale">A dataset large enough to need orchestration</h2>
+        <p>The 2026 Bonaire Baseline collection contains 70,885 photographs across 18 sites. A 29 September inventory recorded 2.86 TB of scans and supporting folders. That scale demands coordination across expensive processing stages.</p>
+        <p>Define the operation sequence and project list, then let the runner advance each site through the selected stages. Operators can review one workflow for the whole collection.</p>
+        <h2 id="processing-workflow">An explicit processing workflow</h2>
+        <p>Commands use Metashape’s operation names: create a project, import photographs, align cameras, build depth maps and models, produce an orthomosaic, and export a raster. Individual operations can also update existing projects.</p>
+        <p>Operation modules declare accepted settings. The runner validates names and types, converts values for Metashape, and uses the application’s native defaults for unspecified settings.</p>
+        <h2 id="batch-processing">One configuration, a queue of projects</h2>
+        <p>A settings file defines the operation sequence and parameters. A JSON batch file supplies each project’s path, photograph directory, and progress through that sequence. The same configuration can then run across the queue.</p>
+        <pre><code>process --batch baseline/scans.json --settings baseline/settings.txt</code></pre>
+        <p>The batch command used for the Bonaire processing run.</p>
+        <p>The processing recipe stays separate from the site list. Settings can be reviewed centrally while each project retains its inputs and progress.</p>
+        <pre><code>--createProject
+            --addPhotos
+            --matchPhotos
+            downscale=4
+            --alignCameras
+            --buildDepthMaps
+            downscale=8
+            --buildModel
+            face_count=LowFaceCount
+            vertex_colors=false
+            vertex_confidence=false
+            build_texture=false
+            --buildOrthomosaic
+            --exportRaster
+            path=../Orthos/ortho.tif
+            image_format=ImageFormatTIFF</code></pre>
+        <p>Operations and settings from the Bonaire batch configuration. Blank lines are omitted here for readability.</p>
+        <h2 id="progress-checkpoints">Progress and checkpoints for long runs</h2>
+        <p>The terminal shows the current project, operation, and Metashape progress. Timestamped project logs retain detailed output, software version, and stage settings; concise failure messages remain in the terminal.</p>
+        <p>After each completed operation, the runner saves the project and records the next step. It skips completed projects and stops the batch on failure or interruption. Rerunning resumes from the recorded stage; an unfinished operation may run again.</p>
+        <pre><code>def save_progress(next_step, chunk_key):
+            entry[&quot;step&quot;] = next_step
+            if chunk_key != args.settings[&quot;chunk&quot;]:
+            entry[&quot;chunk&quot;] = chunk_key
+            save_batch(batch_path, entries)</code></pre>
+        <p>The batch runner records the next operation and selected chunk after completed work has been saved.</p>
+        <p>Checkpoints preserve completed stages and reduce repeated setup. Project logs help operators investigate failures before continuing.</p>
+        <h2 id="architecture">Small operations, one orchestration layer</h2>
+        <p>Metashape performs the numerical work; Python coordinates it. A launcher starts the runner inside Metashape Professional to open projects, select chunks, dispatch operations, save results, and update progress.</p>
+        <ul>
+          <li>Operation modules validate settings and perform tasks on a Metashape chunk.</li>
+          <li>The command runner validates the sequence and controls project processing.</li>
+          <li>Batch and settings files retain site progress and the shared recipe.</li>
+          <li>The output module reports progress and records detailed logs and failures.</li>
+        </ul>
+        <pre><code>def run(chunk, progress=None, **settings):
+            chunk.buildDepthMaps(progress=progress, **settings)</code></pre>
+        <p>The depth-map operation delegates directly to Metashape, using the supplied settings and progress callback.</p>
+        <p>Each processing decision is explicit: the operation, its parameters, and its place in the workflow.</p>
+        <h2 id="reef-outputs">Exports that stay with the project</h2>
+        <p>Raster-export paths resolve relative to each Metashape project, placing outputs beside the correct site. The operation registry also supports tiled models and viewer exports. A shared recipe can place each orthomosaic beside its site project throughout the batch.</p>
+        <p>The result is a repeatable route from photographs to saved reconstructions and maps, with settings and progress recorded for interrupted runs and future work. Teams can review settings once, monitor long runs, and return to unfinished queues without rebuilding the setup for every site.</p>
+        <div class="article-gallery">
+          <figure>
+            <img src="/assets/deeptime-18th-palm-orthomosaic.webp" alt="An orthomosaic detail from the 2026 Bonaire Baseline survey collection, including its report scale bar" width="1078" height="1476" loading="lazy">
+            <figcaption>An orthomosaic detail prepared for research and GIS work, retaining the original report’s scale bar and projection note.</figcaption>
+          </figure>
+        </div>
+        <h2 id="browser-viewer">Related work: browser access</h2>
+        <p>I also built a separate browser prototype for collaborators to inspect prepared cloud-optimized reef maps after processing.</p>
+        <ul>
+          <li>
+            <a href="https://github.com/kidconcept/deeptime">Browser prototype source</a> — the separate imagery-inspection application.</li>
+          <li>
+            <a href="/expeditions/bonaire-baseline.html">Bonaire Baseline Surveys</a> — the fieldwork and survey collection.</li>
+        </ul>
+        <p><a href="/projects/">All projects</a> · <a href="/contact.html">Discuss a project</a></p>
+      </article>
+    </div>
+  </div>
+</SiteLayout>

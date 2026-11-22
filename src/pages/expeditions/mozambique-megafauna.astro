@@ -1,0 +1,52 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageHeading from '../../components/PageHeading.astro';
+---
+
+<SiteLayout
+  title={"Marine Megafauna Foundation — Dan Vallentyne"}
+  description={"Field research and conservation in Mozambique"}
+>
+  <div class="wrap">
+    <PageHeading title={"Marine Megafauna Foundation"} eyebrow={"Expeditions"} lead={"Field research and conservation in Mozambique"}>
+      <a slot="breadcrumb" class="breadcrumb" href="/expeditions/">← All expeditions</a>
+    </PageHeading>
+    <div class="article-layout article-single">
+      <article class="prose">
+        <p><strong>Location:</strong> Tofo and Pomene, Mozambique.</p>
+        <p><strong>Period working with MMF:</strong> 2018–2019, in Mozambique and remotely.</p>
+        <p><strong>My role:</strong> research assistance, communications design, and fundraising.</p>
+        <p>I supported the Marine Megafauna Foundation’s research, communications, and fundraising, working in Mozambique and remotely.</p>
+        <h2>Research in the field</h2>
+        <p>During scuba and freediving surveys, I recorded field notes and photographed manta rays and whale sharks for identification. The media below documents manta fieldwork in Pomene, November 2018.</p>
+        <h3>Manta identification</h3>
+        <div class="article-gallery">
+          <figure>
+            <img data-src="/assets/images/pomene-pb110322-480.webp" alt="Close view of a manta’s belly spot pattern for identification in Pomene, Mozambique" width="2048" height="1424" loading="lazy" data-srcset="/assets/images/pomene-pb110322-480.webp 480w, /assets/pomene-pb110322.webp 2048w" sizes="(max-width:700px) calc(100vw - 40px), (max-width:864px) calc(100vw - 64px), 800px">
+            <figcaption>One of many identification photographs I took during MMF surveys · Pomene, Mozambique · <time datetime="2018-11">November 2018</time>.</figcaption>
+          </figure>
+        </div>
+        <h3>Behavior recordings</h3>
+        <div class="article-gallery">
+          <figure>
+            <video controls playsinline preload="none" poster="/assets/pomene-pb110314.webp" width="1920" height="1080" aria-label="Manta behavior recorded in Pomene, Mozambique, 11 November 2018 at 17:10:17" data-src="/assets/pomene-pb110314.mp4" data-hls="/assets/video/pomene-pb110314/master.m3u8"></video>
+            <figcaption>Manta behavior recording · Pomene, Mozambique · <time datetime="2018-11-11T17:10:17">11 November 2018, 17:10:17</time> (camera time).</figcaption>
+          </figure>
+          <figure>
+            <video controls playsinline preload="none" data-poster="/assets/pomene-pb110317.webp" width="1920" height="1080" aria-label="Manta behavior recorded in Pomene, Mozambique, 11 November 2018 at 17:17:27" data-src="/assets/pomene-pb110317.mp4" data-hls="/assets/video/pomene-pb110317/master.m3u8"></video>
+            <figcaption>Manta behavior recording · Pomene, Mozambique · <time datetime="2018-11-11T17:17:27">11 November 2018, 17:17:27</time> (camera time).</figcaption>
+          </figure>
+        </div>
+        <h2>Supporting the organization</h2>
+        <p>My communications work included outreach, grant writing, and sponsorship programs alongside research support.</p>
+        <h3>Manta sponsorship</h3>
+        <p>MMF’s manual manta-adoption process was difficult to scale. With researchers, I developed sponsorship stories around four mantas, then connected WordPress, WooCommerce, and Printful to automate purchases and worldwide merchandise fulfillment without holding inventory.</p>
+        <h2>Dive the Data</h2>
+        <p>With Zouhair Mahboubi, I designed Dive the Data during my MMF engagement. Linked views of location, frequency, and time helped dive centers explore sightings they collected for research.</p>
+        <p>We simplified collection with dive-center whiteboards and matching Google Sheets. The project reached five regions globally.</p>
+        <p><a href="../projects/dive-the-data.html">Explore Dive the Data</a>.</p>
+        <p><a href="index.html">All expeditions</a> · <a href="../about.html">About me</a> · <a href="../contact.html">Get in touch</a></p>
+      </article>
+    </div>
+  </div>
+</SiteLayout>

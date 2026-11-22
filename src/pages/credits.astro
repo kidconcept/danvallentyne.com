@@ -1,0 +1,35 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeading from '../components/PageHeading.astro';
+---
+
+<SiteLayout
+  title={"Image sources — Dan Vallentyne"}
+  description={"Sources for portfolio photography, survey imagery, and research figures."}
+>
+  <div class="wrap">
+    <PageHeading title={"Image sources"} eyebrow={"The visual archive"} lead={"Photography, survey imagery, and design work drawn from my projects and previous portfolios."}>
+      <a slot="breadcrumb" class="breadcrumb" href="/">← Home</a>
+    </PageHeading>
+    <div class="article-layout">
+      <aside class="article-aside">Selected archive material
+      </aside>
+      <article class="prose">
+        <h2>Bonaire Baseline</h2>
+        <p>Underwater survey photography, the Barcadera orthomosaic sample, and the survey locations map come from the Bonaire Baseline project and the 2026 summary and site reports prepared for STINAPA.</p>
+        <p>The survey locations map uses project location data, Natural Earth coastlines, and <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>.</p>
+        <h2>Goto terminal survey</h2>
+        <p>Terminal photographs and three-dimensional survey reconstructions come from the Goto terminal project archive and technical report for Rijkswaterstaat, Bonaire, 2026.</p>
+        <h2>Network Graph</h2>
+        <p>The network visual is generated from the Network Graph / Ryu project’s public graph snapshot. Nodes represent data systems, organizations, and countries; lines represent relationships recorded in that snapshot. Positions are arranged for display.</p>
+        <h2>Portraits</h2>
+        <p>The underwater portrait of Dan Vallentyne comes from his personal photo archive (danny-vallentyne.jpg). The About-page photograph is from the same archive (PB040217.JPG), showing freediving in Tofo, Mozambique, in 2018.</p>
+        <h2>Earlier portfolio material</h2>
+        <p>The custom survey equipment, 2023 field images, reef reconstruction, reef labeling interface, and Dive the Data design are drawn from my 2024 and 2025 portfolios. Images show the work at the time it was documented; the reef labeling image is identified as related work rather than a current Deeptime screenshot.</p>
+        <h2>Research figures</h2>
+        <p>Mercury study pages: Vallentyne, D., Zhao, Z., Lee, T. Y., and McGuire, D. (2022), <em>Mercury in Dried Market Fish of Hong Kong and San Francisco: Human Health Implications.</em> Journal of Asian Health. <a href="https://doi.org/10.59448/jah.v2i1.15">Publication</a></p>
+        <p>Fisheries research figures: Roberson, L. A., et al. (2022), <em>Spatially explicit risk assessment of marine megafauna vulnerability to Indian Ocean tuna fisheries.</em> Fish and Fisheries. <a href="https://doi.org/10.1111/faf.12676">Publication</a></p>
+      </article>
+    </div>
+  </div>
+</SiteLayout>

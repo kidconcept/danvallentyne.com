@@ -1,0 +1,43 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageHeading from '../../components/PageHeading.astro';
+---
+
+<SiteLayout
+  title={"Expeditions — Dan Vallentyne"}
+  description={"Field campaigns, underwater surveys, and research diving—from documenting reefs to collecting marine megafauna observations."}
+>
+  <div class="wrap">
+    <PageHeading title={"Expeditions"} eyebrow={"03 / Research in the field"} lead={"Underwater fieldwork documenting reefs and marine megafauna."} />
+    <div class="listing">
+      <a class="work-row" href="bonaire-baseline.html"><span class="row-number">01</span>
+        <div>
+          <h2 class="row-title">Bonaire Baseline Surveys</h2>
+          <p class="eyebrow">Bonaire · 2023 and 2026 · Reef mapping</p>
+        </div>
+        <p class="row-summary">Survey equipment and repeat photogrammetry with STINAPA; 18 reef sites surveyed in 2026.</p>
+      </a>
+      <a class="work-row" href="goto-terminal.html"><span class="row-number">02</span>
+        <div>
+          <h2 class="row-title">Goto Terminal Survey</h2>
+          <p class="eyebrow">Bonaire · 2026 · Underwater inspection</p>
+        </div>
+        <p class="row-summary">Recording debris and reef condition beneath Bonaire’s Goto terminals for Rijkswaterstaat.</p>
+      </a>
+      <a class="work-row" href="reef-check-california.html"><span class="row-number">03</span>
+        <div>
+          <h2 class="row-title">Reef Check California</h2>
+          <p class="eyebrow">Monterey, California · 2021 · Research diving</p>
+        </div>
+        <p class="row-summary">Underwater photogrammetry and 3D reconstruction supporting an urchin remediation study.</p>
+      </a>
+      <a class="work-row" href="mozambique-megafauna.html"><span class="row-number">04</span>
+        <div>
+          <h2 class="row-title">Marine Megafauna Foundation</h2>
+          <p class="eyebrow">Mozambique · Work with MMF, 2018–2019 · Marine megafauna observations</p>
+        </div>
+        <p class="row-summary">Research dives and ocean safaris collecting observations in coastal Mozambique.</p>
+      </a>
+    </div>
+  </div>
+</SiteLayout>

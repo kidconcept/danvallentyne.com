@@ -1,0 +1,28 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import PageHeading from '../components/PageHeading.astro';
+---
+
+<SiteLayout
+  title={"Let's work together — Dan Vallentyne"}
+  description={"I work with researchers, conservation organizations, and teams collecting data and building tools. Get in touch if you have a project that needs resource, or want to collaborate."}
+  bodyClass="contact"
+  compactFooter
+>
+  <div class="wrap">
+    <PageHeading title={"Let's work together"} />
+    <div class="article-layout article-single">
+      <article class="prose">
+        <p>I work with researchers, conservation organizations, and teams collecting data and building tools. Get in touch if you have a project that needs resource, or want to collaborate.</p>
+        <h2>Things I can help with</h2>
+        <ul>
+          <li><strong>Underwater surveys and imaging:</strong> survey planning, photogrammetry, 3D reconstruction, and reef mapping.</li>
+          <li><strong>Research software and data:</strong> image-processing workflows, automation, interactive maps, and tools for exploring scientific data.</li>
+          <li><strong>Product and communication:</strong> product development, user research, interface design, data visualization, and making research understandable to the people who need it.</li>
+        </ul>
+        <p>Tell me what you&#x27;re working on, who it&#x27;s for, and where you need help. If there&#x27;s a location, dataset, or deadline involved, include that too.</p>
+        <p><a href="mailto:hello@danvallentyne.com">Email</a> · <a href="https://github.com/kidconcept">GitHub</a> · <a href="https://www.linkedin.com/in/danvallentyne">LinkedIn</a></p>
+      </article>
+    </div>
+  </div>
+</SiteLayout>

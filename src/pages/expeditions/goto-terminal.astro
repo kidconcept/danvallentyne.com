@@ -1,0 +1,51 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageHeading from '../../components/PageHeading.astro';
+---
+
+<SiteLayout
+  title={"Goto Terminal Survey — Dan Vallentyne"}
+  description={"Documenting the environment beneath the terminals"}
+>
+  <div class="wrap">
+    <PageHeading title={"Goto Terminal Survey"} eyebrow={"Expeditions"} lead={"Documenting the environment beneath the terminals"}>
+      <a slot="breadcrumb" class="breadcrumb" href="/expeditions/">← All expeditions</a>
+    </PageHeading>
+    <figure class="detail-hero ">
+      <img src="/assets/goto-terminal.webp?v=20261005-104139" alt="Goto terminals, Terminal A, Bonaire · October 2026. Source: Goto project archive." width="1600" height="739" fetchpriority="high">
+      <figcaption>Goto terminals, Terminal A, Bonaire · October 2026. Source: Goto project archive.</figcaption>
+    </figure>
+    <div class="article-layout article-single">
+      <article class="prose">
+        <p><strong>Location:</strong> Goto terminals, Bonaire.</p>
+        <p><strong>Year:</strong> 2026.</p>
+        <p><strong>Client:</strong> Rijkswaterstaat.</p>
+        <p><strong>My role:</strong> underwater photogrammetry, imagery processing, inspection software, and technical reporting.</p>
+        <p>I surveyed beneath Bonaire’s Goto terminals in 2026 to document marine debris and reef condition, producing maps, reconstructions, and inspection tools.</p>
+        <h2>The field assignment</h2>
+        <p>Photogrammetry supported reconstruction and mapping of the underwater environment.</p>
+        <div class="article-gallery">
+          <figure>
+            <img src="/assets/goto-field-boat.webp" alt="A diver aboard the survey boat beside the Goto terminal" width="1600" height="739" loading="lazy" srcset="/assets/images/goto-field-boat-480.webp 480w, /assets/images/goto-field-boat-960.webp 960w, /assets/goto-field-boat.webp 1600w" sizes="(max-width:700px) calc(100vw - 40px), (max-width:864px) calc(100vw - 64px), 800px">
+            <figcaption>Aboard the survey boat at Goto terminals · 5 October 2026.</figcaption>
+          </figure>
+          <figure>
+            <img src="/assets/goto-terminal-detail.webp" alt="Goto terminal loading arms, walkway and mooring structure viewed from the water" width="1600" height="739" loading="lazy" srcset="/assets/images/goto-terminal-detail-480.webp 480w, /assets/images/goto-terminal-detail-960.webp 960w, /assets/goto-terminal-detail.webp 1600w" sizes="(max-width:700px) calc(100vw - 40px), (max-width:864px) calc(100vw - 64px), 800px">
+            <figcaption>Terminal B viewed from the water.</figcaption>
+          </figure>
+          <figure>
+            <video src="/assets/goto-terminal-structure.mp4" poster="/assets/goto-terminal-structure-poster.webp" width="1920" height="1080" controls playsinline preload="metadata" aria-label="A closer view of the Goto terminal structure filmed from the water">
+              <a href="/assets/goto-terminal-structure.mp4">Watch the Goto terminal video</a></video>
+            <figcaption>A closer view of the significant damage to Terminal B</figcaption>
+          </figure>
+        </div>
+        <h2>Survey outputs</h2>
+        <p>I produced 3D reconstructions, orthomosaics, and technical reports documenting survey coverage and outputs.</p>
+        <p>I built a viewer and labeling tool for Rijkswaterstaat to inspect imagery and analyze debris.</p>
+        <h2>Explore the inspection tool</h2>
+        <p><a href="../projects/goto-survey-viewer.html">Goto Survey Viewer</a>: explore the inspection and labeling tool.</p>
+        <p><a href="index.html">All expeditions</a> · <a href="../contact.html">Discuss a project</a></p>
+      </article>
+    </div>
+  </div>
+</SiteLayout>

@@ -1,0 +1,57 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageHeading from '../../components/PageHeading.astro';
+---
+
+<SiteLayout
+  title={"Scout — Dan Vallentyne"}
+  description={"Source-backed updates for ocean policy and research"}
+>
+  <div class="wrap">
+    <PageHeading title={"Scout"} eyebrow={"Projects"} lead={"Source-backed updates for ocean policy and research"}>
+      <a slot="breadcrumb" class="breadcrumb" href="/projects/">← All projects</a>
+    </PageHeading>
+    <figure class="detail-hero">
+      <img class="scout-screenshot" src="/assets/images/scout-slack-1560.webp" alt="Scout delivering source-linked BBNJ and ocean-funding announcements in Slack" width="1560" height="912" fetchpriority="high" srcset="/assets/images/scout-slack-480.webp 480w, /assets/images/scout-slack-960.webp 960w, /assets/images/scout-slack-1560.webp 1560w" sizes="(max-width:700px) calc(100vw - 40px), (max-width:1000px) calc(100vw - 64px), (max-width:1432px) calc(100vw - 112px), 1320px">
+      <figcaption>Scout brings selected developments into Slack with links to the original sources.</figcaption>
+    </figure>
+    <div class="article-layout">
+      <aside class="article-aside">
+        <nav aria-label="On this page">
+          <p class="eyebrow">On this page</p>
+          <a href="#relevance">Relevance</a>
+          <a href="#findings">Research findings</a>
+          <a href="#dates">Dates and deadlines</a>
+          <a href="#records">Using the records</a>
+        </nav>
+      </aside>
+      <article class="prose">
+        <p>I built Scout for Ocean Agentics to follow UN High Seas Treaty (BBNJ) developments. It brings sourced findings into a shared website, Slack, and a subscription calendar, helping the team investigate updates and opportunities to participate. The team can search the shared record and follow its original sources.</p>
+        <p><strong>Organization:</strong> Ocean Agentics.</p>
+        <p><strong>My contribution:</strong> Product design, monitoring automation, application development, and integrations as Head of Product.</p>
+        <h2 id="relevance">Making relevance specific</h2>
+        <p>For Ocean Agentics, a team connecting marine science, data infrastructure, and policy, a technical Clearing-House Mechanism workshop may matter more than a widely shared announcement.</p>
+        <p>Scout prioritizes Clearing-House Mechanism architecture, standards, interoperability, official treaty changes, and substantive ocean-funder news. Other relevant events and publications remain available at lower priority. Webinars, conferences, papers, and other announcements still have a place in the record.</p>
+        <h2 id="findings">From source material to a useful finding</h2>
+        <p>Scout reads configured webpages and Bluesky feeds, including event programmes and image-based flyers, and separates distinct developments into structured findings.</p>
+        <p>Each searchable finding retains a description, type, priority, organizations, dates, and links to the original material.</p>
+        <p>The Slack example pairs a BBNJ technical study with a Minderoo Foundation announcement, each linked to its source.</p>
+        <h2 id="dates">Dates that keep their meaning</h2>
+        <p>Publication dates, event dates, and deadlines have separate fields. Scout preserves the source’s precision: a month stays a month, and unknown times remain unknown. One development can have a publication date, a participation deadline, and a later meeting date.</p>
+        <p>Only exact-day events become calendar entries, with published times and source links in their descriptions. Partial dates stay in Scout, where the team can verify schedules before acting.</p>
+        <h2 id="records">One record, three ways to use it</h2>
+        <p>Saved findings support three uses: website research, high-priority Slack notifications, and a private calendar subscription for dated events.</p>
+        <p>JavaScript and Vite power the Firebase-hosted interface. Supabase provides Workspace authentication, PostgreSQL, and row-level access control. Server functions handle reading, notifications, and calendar delivery. Gemini investigates sources, with an OpenAI fallback for eligible failures.</p>
+        <p>Slack and calendar delivery reuse stored findings without another model pass, separating source research from distribution. This keeps source investigation separate from delivery while tying each notification and calendar item to the underlying record.</p>
+        <div class="article-gallery">
+          <figure>
+            <a href="/assets/scout-architecture.svg">
+              <img src="/assets/scout-architecture.svg" alt="Configured webpages and Bluesky feeds enter a reader, which saves shared findings for the website, Slack and a private calendar subscription" width="1120" height="680" loading="lazy"></a>
+            <figcaption>Shared findings feed the website, Slack, and private calendar. <a href="/assets/scout-architecture.svg">View the full diagram</a>.</figcaption>
+          </figure>
+        </div>
+        <p><a href="index.html">All projects</a> · <a href="../about.html">About me</a> · <a href="../contact.html">Discuss a project</a></p>
+      </article>
+    </div>
+  </div>
+</SiteLayout>

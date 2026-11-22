@@ -1,0 +1,152 @@
+/*
+ * Site typography: Georgia headings and Helvetica Neue body copy.
+ * Sizes use rem so browser text-size preferences scale the whole system.
+ * Layout, spacing, and color stay in styles.css.
+ */
+:root {
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+
+  --type-display: clamp(4.125rem, 6.8vw, 6.75rem);
+  --type-page-title: clamp(3rem, 5.8vw, 5.25rem);
+  --type-section-title: clamp(2.625rem, 4.4vw, 4rem);
+  --type-feature: clamp(1.75rem, 3vw, 2.625rem);
+  --type-heading: 2.0625rem;
+  --type-subheading: 1.625rem;
+  --type-lead: clamp(1.125rem, 2vw, 1.5rem);
+  --type-body: 1rem;
+  --type-secondary: 0.9375rem;
+  --type-small: 0.875rem;
+  --type-meta: 0.8125rem;
+  --type-caption: 0.6875rem;
+  --type-wordmark: 1.625rem;
+  --type-button: 0.875rem;
+}
+
+body {
+  font-family: var(--sans);
+  font-size: var(--type-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wordmark {
+  font-family: var(--serif);
+  font-size: var(--type-wordmark);
+  letter-spacing: -0.027em;
+  line-height: 1;
+}
+
+.main-nav { font-size: var(--type-small); }
+.menu-button { font-size: var(--type-meta); }
+.button, .text-link { font-size: var(--type-button); }
+
+/* Display and page titles */
+.type-display {
+  font-family: var(--serif);
+  font-size: var(--type-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+
+.type-page-title, .page-heading h1 {
+  font-family: var(--serif);
+  font-size: var(--type-page-title);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 1.05;
+}
+
+.contact .type-page-title { font-size: var(--type-heading); }
+
+.type-section-title, .section-title {
+  font-family: var(--serif);
+  font-size: var(--type-section-title);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+
+/* Cards, list rows, and article headings share one heading style. */
+.card-title, .row-title, .prose h2 {
+  font-family: var(--serif);
+  font-size: var(--type-heading);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.small-project h3, .prose h3, .resource-title,
+.publication h2, .publication h3 {
+  font-family: var(--serif);
+  font-size: var(--type-subheading);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+.intro-statement, .footer-top h2 {
+  font-family: var(--serif);
+  font-size: var(--type-feature);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+/* Lead and supporting copy */
+.page-heading .lead { font-size: var(--type-lead); line-height: 1.45; }
+.hero-description { font-size: 1.0625rem; line-height: 1.65; }
+.section-description { line-height: 1.65; }
+.card-description, .publication p { font-size: var(--type-secondary); }
+.small-project p, .work-row p { font-size: var(--type-small); }
+.article-aside { font-size: var(--type-meta); }
+.resource-card .button { font-size: var(--type-body); }
+.prose strong { font-weight: 500; }
+
+/* One label size replaces the former 9px, 10px, and 11px variants. */
+.eyebrow {
+  font-size: var(--type-caption);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.project-card .eyebrow, .small-project .eyebrow, .work-row .eyebrow {
+  font-size: var(--type-caption);
+}
+
+.scene-button { font-size: var(--type-caption); letter-spacing: 0.12em; }
+.hero-caption, .footer-bottom, .breadcrumb,
+.work-row .row-number, .field-links small { font-size: var(--type-caption); }
+.social-links { font-size: var(--type-small); }
+figcaption, .publication .year { font-size: var(--type-caption); line-height: 1.5; }
+.prose pre { font: var(--type-meta)/1.5 var(--mono); }
+
+@media (max-width: 1000px) {
+  :root { --type-display: 5rem; }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --type-display: clamp(2.5rem, 12.9vw, 4.875rem);
+    --type-page-title: 3.25rem;
+    --type-section-title: 2.6875rem;
+    --type-heading: 1.9375rem;
+    --type-lead: 1.25rem;
+    --type-wordmark: 1.5rem;
+    --type-button: 0.8125rem;
+  }
+
+  .hero-description { font-size: var(--type-body); line-height: 1.7; }
+  .scene-button, .hero-caption { font-size: 0.625rem; }
+  .scene-button { letter-spacing: 0.01em; }
+  .intro-statement { font-size: 1.875rem; }
+  .publication h2, .publication h3 { font-size: 1.4375rem; }
+}
+
+@media (max-width: 1000px), (orientation: portrait) {
+  .article-aside nav[aria-label="On this page"] a { line-height: 2.4; }
+}

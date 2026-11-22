@@ -1,0 +1,93 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageHeading from '../../components/PageHeading.astro';
+---
+
+<SiteLayout
+  title={"Network Graph — Dan Vallentyne"}
+  description={"Mapping ocean data connections"}
+>
+  <div class="wrap">
+    <PageHeading title={"Network Graph"} eyebrow={"Projects"} lead={"Mapping the systems behind ocean data"}>
+      <a slot="breadcrumb" class="breadcrumb" href="/projects/">← All projects</a>
+      <div class="hero-actions">
+        <a class="button" href="https://chm.oceanagentics.com/explorer/">Explore the live network</a>
+        <a class="text-link" href="https://github.com/oceanagentics/ryu">GitHub source</a>
+      </div>
+    </PageHeading>
+    <figure class="detail-hero">
+      <iframe data-src="/embeds/network-graph/?v=19a7824412ff" title={"Interactive Network Graph of ocean data systems and organizations"} width="1320" height="650" loading="lazy"></iframe>
+      <figcaption>Search, filter, and explore the graph here. The live application adds full profiles, catalogue views, galleries, and language selection.</figcaption>
+    </figure>
+    <div class="article-layout">
+      <aside class="article-aside">
+        <div class="article-resources">
+          <p class="eyebrow">Project links</p>
+          <a class="resource-card" href="https://chm.oceanagentics.com/explorer/" target="_blank" rel="noopener noreferrer">
+            <img data-src="/assets/images/network-graph-motion-poster-1240.webp" alt="" width="1240" height="800" loading="lazy" data-srcset="/assets/images/network-graph-motion-poster-480.webp 480w, /assets/images/network-graph-motion-poster-960.webp 960w, /assets/images/network-graph-motion-poster-1240.webp 1240w" sizes="320px"><span class="resource-link">Open Network <span aria-hidden="true">↗</span></span></a>
+        </div>
+        <div class="article-resources">
+          <p class="eyebrow">Source code</p>
+          <a href="https://github.com/oceanagentics/ryu" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>
+        </div>
+        <nav aria-label="On this page">
+          <p class="eyebrow">On this page</p>
+          <a href="#exploration">Exploring the network</a>
+          <a href="#relationships">Understanding connections</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#development">Further development</a>
+        </nav>
+      </aside>
+      <article class="prose">
+        <p>As Ocean Agentics’ Head of Product, I developed Ryu, the Network Graph application, to connect ocean data systems, organizations, and countries through documented relationships.</p>
+        <p>Ryu helps researchers find data, teams plan integrations, and people investigate marine information providers. Knowing who operates a portal, what it contains, and its connections helps users decide where to look next. It connects the search for data with an understanding of its providers.</p>
+        <h2 id="exploration">Follow a question through the network</h2>
+        <p>Who operates the Ocean Biodiversity Information System, and what connects it to other sources of marine biodiversity data?</p>
+        <p>Search for OBIS and explore its graph or catalogue record: data, access methods, representative content, and sources. Relationships identify IOC-UNESCO IODE as its operator and connect it to other systems and organizations.</p>
+        <p>The graph supplies context; the catalogue supports comparison. Shared search and filters connect both views. The public snapshot contains 237 entities and 274 relationships, a researched collection with defined limits.</p>
+        <div class="article-gallery">
+          <figure>
+            <video controls muted loop playsinline preload="none" poster="/assets/images/network-graph-motion-poster-1240.webp" width="1240" height="800" data-src="/assets/network-graph.mp4" data-hls="/assets/video/network-graph/master.m3u8"></video>
+            <figcaption>Systems, organizations, and countries connected by documented relationships. Explore individual records in the interactive preview.</figcaption>
+          </figure>
+        </div>
+        <h2 id="relationships">Make every connection explain itself</h2>
+        <p>Relationships distinguish operation, governance, funding, membership, contribution, and data transfer. Each has a direction, description, and supporting sources.</p>
+        <p>The WoRMS-to-OBIS relationship describes taxonomic enrichment: matching submitted scientific names against WoRMS and including that information in occurrence exports. Its evidence explains what the connection actually does.</p>
+        <p>Profiles collect access methods, data types, formats, research gaps, and source content. Review labels show research status; coverage indicators distinguish the six interface languages from available record translations. Evidence and limitations stay visible while users compare systems or follow a connection.</p>
+        <div class="article-gallery">
+          <figure>
+            <img data-src="/assets/images/network-graph-obis-dataset-1440.webp" alt="OBIS Maritimes 4VSW Research Vessel Surveys dataset page" width="1440" height="900" loading="lazy" data-srcset="/assets/images/network-graph-obis-dataset-480.webp 480w, /assets/images/network-graph-obis-dataset-1440.webp 1440w" sizes="(max-width:700px) calc(100vw - 40px), (max-width:864px) calc(100vw - 64px), 800px">
+            <figcaption>Upstream content in Ryu’s OBIS gallery: the <a href="https://obis.org/dataset/471fe91a-2d5f-4651-b76b-e1e9cdba9940">Maritimes 4VSW Research Vessel Surveys dataset</a>, shown in the OBIS interface.</figcaption>
+          </figure>
+        </div>
+        <h2 id="architecture">Two sides of the application</h2>
+        <p>Ryu separates its editable research records from the public discovery application.</p>
+        <ul>
+          <li><strong>Local authoring:</strong> an Express/TypeScript API validates PostgreSQL records. Shared contracts define three node types, six relationship types, citations, localization, and review metadata.</li>
+          <li><strong>Public export:</strong> a redacted JSON snapshot and gallery assets omit private reviewer information and operational routes.</li>
+          <li><strong>Browser exploration:</strong> React and Zustand coordinate search, filtering, and selection. Scope, projection, and geometry precede layout and Three.js rendering; graph, catalogue, and profiles share the exported records.</li>
+        </ul>
+        <div class="article-gallery">
+          <figure>
+            <img data-src="/assets/network-graph-architecture.svg" alt="Network Graph architecture from local authoring through a redacted public export to browser exploration" width="600" height="720" loading="lazy">
+            <figcaption>Firebase Hosting serves the public application without a production API or database. Editable PostgreSQL records and the Record API remain local.</figcaption>
+          </figure>
+        </div>
+        <p>Search runs in the browser. An English-language export powers this page’s compact preview; the live application provides the full catalogue and profiles.</p>
+        <h2 id="development">Developed beyond the graph</h2>
+        <p>Repository history traces the shift from graph visualization to structured, evidenced research:</p>
+        <ul>
+          <li>
+            <a href="https://github.com/oceanagentics/ryu/commit/5ead5329f4e694a72f0c1649efd7cc1d3f225cf0">Localized records and shared search</a> coordinated aliases, language fallback, matching, and filters.</li>
+          <li>
+            <a href="https://github.com/oceanagentics/ryu/commit/6c18f7db637e1fa121a078c767ed65fe33c3a337">Relationship-detail controls</a> added graph detail levels while preserving entities and relationship meanings.</li>
+          <li>
+            <a href="https://github.com/oceanagentics/ryu/commit/2a70ebb381a18a0ff459e928a2cb1f667571f44b">Static public hosting</a> separated discovery from the editable database and production API.</li>
+        </ul>
+        <p>The graph becomes a starting point for investigating an information ecosystem: users can follow an overview into a record, its relationships, and the evidence behind them.</p>
+        <p><a href="https://chm.oceanagentics.com/explorer/">Explore Network Graph</a> · <a href="index.html">All projects</a> · <a href="../about.html">About me</a> · <a href="../contact.html">Discuss a project</a></p>
+      </article>
+    </div>
+  </div>
+</SiteLayout>

@@ -1,0 +1,100 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageHeading from '../../components/PageHeading.astro';
+---
+
+<SiteLayout
+  title={"Dive the Data — Dan Vallentyne"}
+  description={"Designing a marine citizen science platform, from linked sightings visualizations to the field workflow used by dive-center teams."}
+>
+  <div class="wrap">
+    <PageHeading title={"Dive the Data"} eyebrow={"Projects"} lead={"Making everyday dives useful to marine research"}>
+      <a slot="breadcrumb" class="breadcrumb" href="/projects/">← All projects</a>
+    </PageHeading>
+    <figure class="detail-hero article-gallery">
+      <img src="/assets/dive-the-data-responsive-states.jpg" alt="Dive the Data responsive interface design shown across desktop, tablet, and phone" width="1440" height="900">
+      <figcaption>Responsive interface designs preserve the linked views across desktop, tablet, and phone layouts.</figcaption>
+    </figure>
+    <div class="article-layout">
+      <aside class="article-aside">
+        <nav aria-label="On this page">
+          <p class="eyebrow">On this page</p>
+          <a href="#sightings">Reading the sightings</a>
+          <a href="#fieldwork">The collection process</a>
+          <a href="#interaction">Learning the interactions</a>
+          <a href="#workflow">From observations to shared views</a>
+          <a href="#participation">Growing participation</a>
+        </nav>
+      </aside>
+      <article class="prose">
+        <p>I co-founded and designed Dive the Data, a citizen science platform for recording and exploring marine megafauna sightings. With the Marine Megafauna Foundation and developer <a href="https://github.com/zouhairm">Zouhair</a>, I connected dashboard design, field research, and dive-center training.</p>
+        <p>The project began in Tofo, Mozambique, where dive centers recorded whale sharks, manta rays, and humpback whales. We wanted those records to serve researchers and the teams collecting them.</p>
+        <p><strong>Started:</strong> 2018 pilot.<br><strong>My contribution:</strong> co-founding, platform and dashboard design, field research, and training dive-center teams.</p>
+        <h2 id="sightings">Three views of the same sightings</h2>
+        <p>A dive-site map, species-frequency chart, and time chart filter one another. Users can start with a place, animal, or period and follow that selection across the data.</p>
+        <p>Dive centers can explore where species appear and how sightings change over time. Showing dive counts alongside sightings keeps observations connected to the activity that produced them.</p>
+        <p>I explored desktop, tablet, and phone layouts for the maps, charts, and species information.</p>
+        <div class="article-gallery">
+          <figure id="walkthrough">
+            <video poster="/assets/dive-the-data-interface.jpg" width="2424" height="1596" controls muted playsinline data-autoplay preload="none" aria-label="Dive the Data product walkthrough showing linked charts" data-src="/assets/dive-the-data-walkthrough.mp4?v=2018-original" data-hls="/assets/video/dive-the-data-walkthrough/master.m3u8">
+              <a href="/assets/dive-the-data-walkthrough.mp4">Watch the Dive the Data product walkthrough</a></video>
+            <figcaption>Linked views connect dive sites, species frequency, and sightings over time. Selecting records updates all three.</figcaption>
+          </figure>
+          <figure>
+            <img data-src="/assets/images/dive-the-data-responsive-design-1600.webp" alt="Dive the Data species-guide interface designs shown on a tablet and phone" width="2517" height="1037" loading="lazy" data-srcset="/assets/images/dive-the-data-responsive-design-480.webp 480w, /assets/images/dive-the-data-responsive-design-960.webp 960w, /assets/images/dive-the-data-responsive-design-1600.webp 1600w, /assets/dive-the-data-responsive-design.jpg 2517w" sizes="(max-width:700px) calc(100vw - 40px), (max-width:864px) calc(100vw - 64px), 800px">
+            <figcaption>Species-guide design studies pair animal names and silhouettes with the dive-site map.</figcaption>
+          </figure>
+        </div>
+        <h2 id="fieldwork">A whiteboard was part of the product</h2>
+        <p>Divemasters told us the collection method made recording sightings difficult. Together, we developed a simpler approach using a whiteboard and phone camera.</p>
+        <p>Teams recorded sightings on the board during post-dive debriefs. A photograph of the completed board went to an MMF research assistant for transcription and collation. Keeping it at the debrief made recording observations part of the dive-center routine.</p>
+        <div class="article-gallery">
+          <figure>
+            <img data-src="/assets/images/dive-the-data-field-whiteboard-1600.webp" alt="Demonstrating the Dive the Data sightings whiteboard at a dive center in Mexico" width="3520" height="1980" loading="lazy" data-srcset="/assets/images/dive-the-data-field-whiteboard-480.webp 480w, /assets/images/dive-the-data-field-whiteboard-960.webp 960w, /assets/images/dive-the-data-field-whiteboard-1600.webp 1600w, /assets/dive-the-data-field-whiteboard.jpg 3520w" sizes="(max-width:700px) calc(100vw - 40px), (max-width:864px) calc(100vw - 64px), 800px">
+            <figcaption>The sightings board made recording observations part of the dive-center routine in Mexico.</figcaption>
+          </figure>
+        </div>
+        <p>Training covered recording sightings and interpreting the results. Clear visualizations gave contributors a way to explore their work and share it with divers. Returning useful results to the people collecting data was as much a part of the product as the dashboard.</p>
+        <div class="article-gallery">
+          <figure>
+            <img data-src="/assets/images/dive-the-data-team-demo-1600.webp" alt="A dive-center team in Mozambique gathered around a laptop to review Dive the Data" width="4048" height="3036" loading="lazy" data-srcset="/assets/images/dive-the-data-team-demo-480.webp 480w, /assets/images/dive-the-data-team-demo-960.webp 960w, /assets/images/dive-the-data-team-demo-1600.webp 1600w, /assets/dive-the-data-team-demo.jpg 4048w" sizes="(max-width:700px) calc(100vw - 40px), (max-width:864px) calc(100vw - 64px), 800px">
+            <figcaption>Reviewing the platform with a dive-center team in Mozambique.</figcaption>
+          </figure>
+        </div>
+        <h2 id="interaction">Making rich interactions learnable</h2>
+        <p>Testing showed that divers unfamiliar with interactive graphs struggled with Plotly’s default controls. The charts offered rich control, but that control mattered only if participants understood how to use it.</p>
+        <p>I added guidance for selecting species, sites, and groups of records, and resetting views. Paper studies explored metrics such as total sightings and sightings per dive.</p>
+        <div class="article-gallery">
+          <figure>
+            <img data-src="/assets/dive-the-data-interaction-guide.jpg" alt="An archived Dive the Data interface design explaining chart selection and reset controls" width="1440" height="1152" loading="lazy" data-srcset="/assets/images/dive-the-data-interaction-guide-480.webp 480w, /assets/images/dive-the-data-interaction-guide-960.webp 960w, /assets/dive-the-data-interaction-guide.jpg 1440w" sizes="(max-width:700px) calc(100vw - 40px), (max-width:864px) calc(100vw - 64px), 800px">
+            <figcaption>Guidance for single and group selection, clearing selections, and resetting chart axes.</figcaption>
+          </figure>
+          <figure>
+            <img data-src="/assets/images/dive-the-data-graph-sketch-1600.webp" alt="Four paper mobile interface studies comparing chart size, map placement, and sightings metrics" width="3840" height="2160" loading="lazy" data-srcset="/assets/images/dive-the-data-graph-sketch-480.webp 480w, /assets/images/dive-the-data-graph-sketch-960.webp 960w, /assets/images/dive-the-data-graph-sketch-1600.webp 1600w, /assets/dive-the-data-graph-sketch.jpg?v=full-study 3840w" sizes="(max-width:700px) calc(100vw - 40px), (max-width:864px) calc(100vw - 64px), 800px">
+            <figcaption>Paper studies compare full-height and compact chart layouts, frequency ordering, and total sightings.</figcaption>
+          </figure>
+        </div>
+        <h2 id="workflow">From observations to shared views</h2>
+        <p>Plotly and Dash coordinated the visualizations, supported by a wider workflow:</p>
+        <ul>
+          <li><strong>Field records:</strong> dive-center teams recorded observations during the debrief.</li>
+          <li><strong>Curation:</strong> research assistants transcribed and collated the sightings.</li>
+          <li><strong>Exploration:</strong> linked charts let contributors and researchers investigate the collected records by site, species, and time.</li>
+        </ul>
+        <p>Useful charts depended on practical collection methods and on returning insights to the people contributing records.</p>
+        <h2 id="participation">Growing through participation</h2>
+        <p>By late 2018, the pilot included Tofo, Bali, and Komodo. I continued visiting and training dive-center teams across five global regions.</p>
+        <p>The Bali poster introduced the project to dive centers and guests through species guides, charts, regional maps, and local partners.</p>
+        <div class="article-gallery">
+          <figure>
+            <img data-src="/assets/dive-the-data-bali-poster.jpg" alt="Dive the Data sample Bali poster design with a manta photograph, species guide, charts, maps, and partner logos" width="595" height="841" loading="lazy">
+            <figcaption>A sample poster design for the Bali region connects the sightings data with the local dive community.</figcaption>
+          </figure>
+        </div>
+        <h2>Related fieldwork</h2>
+        <p><a href="/expeditions/mozambique-megafauna.html">Marine megafauna research in Mozambique</a>: the field experience behind the work.</p>
+        <p><a href="/projects/">All projects</a> · <a href="/contact.html">Discuss a project</a></p>
+      </article>
+    </div>
+  </div>
+</SiteLayout>

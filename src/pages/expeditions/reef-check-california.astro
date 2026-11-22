@@ -1,0 +1,29 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PageHeading from '../../components/PageHeading.astro';
+---
+
+<SiteLayout
+  title={"Reef Check California — Dan Vallentyne"}
+  description={"Measuring the shape of underwater study plots"}
+>
+  <div class="wrap">
+    <PageHeading title={"Reef Check California"} eyebrow={"Expeditions"} lead={"Measuring the shape of underwater study plots"}>
+      <a slot="breadcrumb" class="breadcrumb" href="/expeditions/">← All expeditions</a>
+    </PageHeading>
+    <div class="article-layout article-single">
+      <article class="prose">
+        <p><strong>Location:</strong> Monterey, California.</p>
+        <p><strong>Year:</strong> 2021.</p>
+        <p><strong>Organization:</strong> Reef Check California.</p>
+        <p><strong>My role:</strong> underwater photogrammetry surveys and surface-area estimation from 3D reconstructions.</p>
+        <p>For an urchin remediation study, I used underwater photogrammetry to estimate the surface area of rugose plots with uneven, complex surfaces.</p>
+        <h2>Supporting the study</h2>
+        <p>I documented plots and estimated their surface area.</p>
+        <h2>From field images to measurements</h2>
+        <p>Photographs became 3D models whose geometry supported plot-area estimates.</p>
+        <p><a href="index.html">All expeditions</a> · <a href="../projects/deeptime.html">Explore related imaging tools</a> · <a href="../contact.html">Discuss a project</a></p>
+      </article>
+    </div>
+  </div>
+</SiteLayout>
