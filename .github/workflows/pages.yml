@@ -23,6 +23,8 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: actions/configure-pages@v5
+      - name: Build footer components
+        run: python3 build-footer.py
       - uses: actions/upload-pages-artifact@v4
         with:
           path: dist
