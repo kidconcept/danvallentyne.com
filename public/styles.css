@@ -1,4 +1,4 @@
-@import url('/typography.css?v=20261121-typography');
+@import url('/typography.css?v=20261121-shared-article-layout');
 
 :root {
   --ink: #172f34;
@@ -118,7 +118,7 @@ figcaption { color: var(--muted); margin-top: 12px; }
 .social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 24px; }
 .social-links a:hover { color: white; }
 .page-heading { padding-block: 65px 50px; max-width: 1000px; }
-.contact .page-heading { padding-bottom: 20px; }
+.about .page-heading, .contact .page-heading { padding-bottom: 20px; }
 .breadcrumb { color: var(--muted); display: inline-block; margin-bottom: 30px; }
 .breadcrumb:hover { text-decoration: underline; }
 .page-heading .eyebrow { color: var(--muted); margin-bottom: 20px; }
@@ -132,7 +132,6 @@ figcaption { color: var(--muted); margin-top: 12px; }
 .detail-hero.dark img { background: var(--sea); object-fit: contain; }
 .article-layout { display: grid; grid-template-columns: 1fr 2.1fr; gap: 65px; padding-bottom: 90px; }
 .article-layout.article-single { display: block; max-width: 800px; margin-inline: auto; }
-.contact .article-single { margin-inline: 0; }
 .article-aside { color: var(--muted); }
 .article-aside .eyebrow { margin-bottom: 20px; }
 .article-aside a { display: block; padding: 5px 0; }
