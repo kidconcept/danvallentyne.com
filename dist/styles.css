@@ -123,6 +123,7 @@ figcaption { font-size: 11px; color: var(--muted); line-height: 1.5; margin-top:
 .social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 24px; }
 .social-links a:hover { color: white; }
 .page-heading { padding-block: 65px 50px; max-width: 1000px; }
+.contact .page-heading { padding-bottom: 20px; }
 .breadcrumb { font-size: 11px; color: var(--muted); display: inline-block; margin-bottom: 30px; }
 .breadcrumb:hover { text-decoration: underline; }
 .page-heading .eyebrow { color: var(--muted); margin-bottom: 20px; }
